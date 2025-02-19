@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let randomMessageArray =
       mesgArr[Math.floor(Math.random() * mesgArr.length)];
     let randomDiff = diffMsg[Math.floor(Math.random() * diffMsg.length)];
-    console.log(randomMessageArray);
-    console.log(randomDiff);
 
     let toast = document.createElement("div");
     toast.classList.add("toast");
@@ -18,5 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toasts.appendChild(toast);
     toast.innerHTML = randomMessageArray;
+
+    setTimeout(() => {
+       toast.remove()
+      }, 3000);
+      
+
+    console.log(`${randomMessageArray} -> ${randomDiff}`);
   });
 });

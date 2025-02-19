@@ -2,27 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   let btn = document.querySelector("button");
   let toasts = document.querySelector(".toasts");
 
-  btn.addEventListener('click',()=>{
-    let mesgArr=["Message1","Message2","Message3"]
+  btn.addEventListener("click", () => {
+    let mesgArr = ["Message1", "Message2", "Message3"];
+    let diffMsg = ["toastSuccess", "toastError", "toastInfo"];
 
-    let randomMessageArray=mesgArr[(Math.floor(Math.random()*mesgArr.length))]
-    console.log(randomMessageArray)
+    let randomMessageArray =
+      mesgArr[Math.floor(Math.random() * mesgArr.length)];
+    let randomDiff = diffMsg[Math.floor(Math.random() * diffMsg.length)];
+    console.log(randomMessageArray);
+    console.log(randomDiff);
 
-    let toast=document.createElement("div")
-    toast.classList.add('toast')
+    let toast = document.createElement("div");
+    toast.classList.add("toast");
+    toast.classList.add(randomDiff);
 
-    toasts.appendChild(toast)
-    
-    function toastVanish(){
-        toast.innerHTML=randomMessageArray
-
-    }
-    toastVanished()
-    function toastVanished(){
-        setTimeout((toastVanish()),100)
-    }
-
-    
-    // toast.innerHTML=randomMessageArray
-  })
+    toasts.appendChild(toast);
+    toast.innerHTML = randomMessageArray;
+  });
 });
